@@ -1,0 +1,62 @@
+CREATE DATABASE kinder;
+
+CREATE TABLE Genero (
+    idGenero SERIAL PRIMARY KEY,
+    descripcion varchar(30) NOT NULL
+);
+
+CREATE TABLE EstadoCivil (
+    idEstadoCivil SERIAL PRIMARY KEY,
+    descripcion varchar(30)
+);
+
+CREATE TABLE Parentesco (
+    idParentesco SERIAL PRIMARY KEY,
+    descripcion varchar(40) NOT NULL
+);
+
+CREATE TABLE Curso (
+    idCurso SERIAL PRIMARY KEY,
+    descripcion varchar(50) NOT NULL
+);
+
+
+CREATE TABLE Representante (
+    idRepresentante SERIAL PRIMARY KEY,
+    cedula varchar(10) NOT NULL,
+    apellido_represetante varchar(45) NOT NULL,
+    nombre_representante varchar(45) NOT NULL,
+    idGenero INT NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    idEstadoCivil INT NOT NULL,
+    email_representante   varchar(45) NOT NULL,
+    ocupacion varchar(50) NOT NULL,
+    CONSTRAINT Genero_Representante_FK FOREIGN KEY (idGenero) REFERENCES Genero (idGenero) ON UPDATE CASCADE ON DELETE NO ACTION,
+    CONSTRAINT EstadoCivil_Representante_FK FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil (idEstadoCivil) ON UPDATE CASCADE ON DELETE NO ACTION 
+);
+
+CREATE TABLE Estudiante (
+    idEstudiante SERIAL PRIMARY KEY,
+    cedula varchar(10) NOT NULL,
+    apellido_estudiante varchar(45) NOT NULL,
+    nombre_estudiante varchar(45) NOT NULL,    
+    fecha_nacimiento DATE NOT NULL,
+    idGenero INT NOT NULL,    
+    edad_estudiante INT NOT NULL,
+    grupo_sanguineo varchar(20) NOT NULL,
+    idRepresentante INT NOT NULL, 
+    idParentesco INT NOT NULL, 
+    CONSTRAINT Genero_Estudiante_FK FOREIGN KEY (idGenero) REFERENCES Genero (idGenero) ON UPDATE CASCADE ON DELETE NO ACTION,
+    CONSTRAINT Representante_Estudiante_FK FOREIGN KEY (idRepresentante) REFERENCES Representante (idRepresentante) ON UPDATE CASCADE ON DELETE NO ACTION,
+    CONSTRAINT Parentesco_Estudiante_FK FOREIGN KEY (idParentesco) REFERENCES Parentesco (idParentesco) ON UPDATE CASCADE ON DELETE NO ACTION  
+);
+
+CREATE TABLE Matricula(
+    idMatricula SERIAL PRIMARY KEY,
+    idEstudiante INT NOT NULL, 
+    idCurso INT NOT NULL,
+    fecha DATE NOT NULL, 
+    CONSTRAINT Estudiante_Matricula_FK FOREIGN KEY (idEstudiante) REFERENCES Estudiante (idEstudiante) ON UPDATE CASCADE ON DELETE NO ACTION,
+    CONSTRAINT Curso_Matricula_FK FOREIGN KEY (idCurso) REFERENCES Curso (idCurso) ON UPDATE CASCADE ON DELETE NO ACTION 
+);
+
