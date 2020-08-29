@@ -34,6 +34,7 @@ CREATE TABLE Representante (
     fecha_nacimiento DATE NOT NULL,
     idEstadoCivil NUMBER,
     email_representante   varchar(45) NOT NULL,
+    ocupacion varchar(50) NOT NULL,
     CONSTRAINT Representante_pk PRIMARY KEY(idRepresentante),
     CONSTRAINT Representante_Genero_fk FOREIGN KEY (idGenero) REFERENCES Genero (idGenero),
     CONSTRAINT Representante_idEstadoCivil_fk FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil (idEstadoCivil)
