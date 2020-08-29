@@ -1,38 +1,38 @@
 CREATE DATABASE kinder;
 
 CREATE TABLE Genero (
-    idGenero NUMBER,
+    idGenero int not null,
     descripcion varchar(30),
     CONSTRAINT Genero_pk PRIMARY KEY(idGenero)
 );
 
 CREATE TABLE EstadoCivil (
-    idEstadoCivil NUMBER,
+    idEstadoCivil int not null,
     descripcion varchar(30),
     CONSTRAINT EstadoCivil_pk PRIMARY KEY(idEstadoCivil)
 );
 
 CREATE TABLE Parentesco (
-    idParentesco NUMBER,
+    idParentesco int not null,
     descripcion varchar(40),
     CONSTRAINT Parentesco_pk PRIMARY KEY(idParentesco)
 );
 
 CREATE TABLE Curso (
-    idCurso NUMBER,
+    idCurso int not null,
     descripcion varchar(50) NOT NULL,    
     CONSTRAINT Curso_pk PRIMARY KEY(idCurso)
 );
 
 
 CREATE TABLE Representante (
-    idRepresentante NUMBER,
+    idRepresentante int not null,
     cedula varchar(10) NOT NULL,
     apellido_represetante varchar(45) NOT NULL,
     nombre_representante varchar(45) NOT NULL,
-    idGenero NUMBER,
+    idGenero int not null,
     fecha_nacimiento DATE NOT NULL,
-    idEstadoCivil NUMBER,
+    idEstadoCivil int not null,
     email_representante   varchar(45) NOT NULL,
     ocupacion varchar(50) NOT NULL,
     CONSTRAINT Representante_pk PRIMARY KEY(idRepresentante),
@@ -41,25 +41,25 @@ CREATE TABLE Representante (
 );
 
 CREATE TABLE Estudiante (
-    idEstudiante NUMBER,
+    idEstudiante int not null,
     cedula varchar(10) NOT NULL,
     apellido_estudiante varchar(45) NOT NULL,
     nombre_estudiante varchar(45) NOT NULL,    
     fecha_nacimiento DATE NOT NULL,
-    idGenero NUMBER,    
-    edad_estudiante INT NOT NULL,
+    idGenero int not null,    
+    edad_estudiante varchar (45),
     grupo_sanguineo varchar(20) NOT NULL,
-    idRepresentante NUMBER, 
-    idParentesco NUMBER, 
+    idRepresentante int not null, 
+    idParentesco int not null, 
     CONSTRAINT Estudiante_pk PRIMARY KEY(idEstudiante),
     CONSTRAINT Estudiante_Genero_fk FOREIGN KEY (idGenero) REFERENCES Genero (idGenero),
     CONSTRAINT Estudiante_Parentesco_fk FOREIGN KEY (idParentesco) REFERENCES Parentesco (idParentesco) 
 );
 
 CREATE TABLE Matricula(
-    idMatricula NUMBER,
-    idEstudiante NUMBER, 
-    idCurso NUMBER,
+    idMatricula int not null,
+    idEstudiante int not null, 
+    idCurso int not null,
     fecha DATE NOT NULL,
     CONSTRAINT Matricula_pk PRIMARY KEY(idMatricula),
     CONSTRAINT Matricula_Estudiante_fk FOREIGN KEY (idEstudiante) REFERENCES Estudiante (idEstudiante),
