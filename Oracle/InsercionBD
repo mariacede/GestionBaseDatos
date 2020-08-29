@@ -1,49 +1,85 @@
 INSERT INTO Genero (idGenero, descripcion)  VALUES
 (1, 'Mujer'),
+INSERT INTO Genero (idGenero, descripcion)  VALUES
 (2, 'Hombre'),
+INSERT INTO Genero (idGenero, descripcion)  VALUES
 (3, 'Otro');
+
 
 INSERT INTO EstadoCivil (idEstadoCivil, descripcion) VALUES
 (1, 'Soltero'),
+INSERT INTO EstadoCivil (idEstadoCivil, descripcion) VALUES
 (2, 'Casado'),
+INSERT INTO EstadoCivil (idEstadoCivil, descripcion) VALUES
 (3, 'Union de Hecho'),
+INSERT INTO EstadoCivil (idEstadoCivil, descripcion) VALUES
 (4, 'Divorciado'),
+INSERT INTO EstadoCivil (idEstadoCivil, descripcion) VALUES
 (5, 'Viudo');
+
+
 
 INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (1, 'Mamá'),
+INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (2, 'Papá'),
+INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (3, 'Hermana'),
+INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (4, 'Hermano'),
+INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (5, 'Tia'),
+INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (6, 'Tio'),
+INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (7, 'Abuela'),
+INSERT INTO Parentesco (idParentesco, descripcion) VALUES
 (8, 'Abuelo');
+
 
 INSERT INTO Curso (idCurso, descripcion) VALUES
 (1, 'Inicial 1-A'),
+INSERT INTO Curso (idCurso, descripcion) VALUES
 (2, 'Inicial 1-B'),
+INSERT INTO Curso (idCurso, descripcion) VALUES
 (3, 'Inicial 2-A'),
+INSERT INTO Curso (idCurso, descripcion) VALUES
 (4, 'Inicial 2-B');
 
 
+
 INSERT INTO Representante (idRepresentante, cedula, apellido_represetante, nombre_representante, idGenero, fecha_nacimiento, idEstadoCivil, email_representante, ocupacion) VALUES
-(1, '1317863487', 'Cevallos Mera', 'Manuel Issac', 2, '1995-01-25', 4, 'manuel@gmail.com', 'Chef'),
-(2, '1319201021', 'Reyes Tello', 'Martina Lisseth',  1, '1998-07-23', 1, 'marthyreyes6@gmail.com', 'Ama de casa'),
-(3, '1313365672', 'Valverde Rodriguez', 'Raul Homero', 2, '1990-04-07', 2, 'raul2983@gmail.com', 'Ingeniero'),
-(4, '1311215678', 'Calderon Lopez', 'Anne Melina', 1 , '1989-05-21', 3, 'annecalderon09@gmail.com', 'Policia'),
-(5, '1319876541', 'Ruiz Sacan', 'Lilian Rosa', 1 ,'1987-03-18', 2, 'lilianruiz_9@gmail.com', 'Enfermera');
+(1, '1317863487', 'Cevallos Mera', 'Manuel Issac', 2, '01-01-2020', 4, 'manuel@gmail.com', 'Chef'), 
+INSERT INTO Representante (idRepresentante, cedula, apellido_represetante, nombre_representante, idGenero, fecha_nacimiento, idEstadoCivil, email_representante, ocupacion) VALUES
+(2, '1319201021', 'Reyes Tello', 'Martina Lisseth',  1, '23-07-1998', 1, 'marthyreyes6@gmail.com', 'Ama de casa'), 
+INSERT INTO Representante (idRepresentante, cedula, apellido_represetante, nombre_representante, idGenero, fecha_nacimiento, idEstadoCivil, email_representante, ocupacion) VALUES
+(3, '1313365672', 'Valverde Rodriguez', 'Raul Homero', 2, '04-07-1990', 2, 'raul2983@gmail.com', 'Ingeniero'), 
+INSERT INTO Representante (idRepresentante, cedula, apellido_represetante, nombre_representante, idGenero, fecha_nacimiento, idEstadoCivil, email_representante, ocupacion) VALUES
+(4, '1311215678', 'Calderon Lopez', 'Anne Melina', 1 , '21-05-1989', 3, 'annecalderon09@gmail.com', 'Policia'), 
+INSERT INTO Representante (idRepresentante, cedula, apellido_represetante, nombre_representante, idGenero, fecha_nacimiento, idEstadoCivil, email_representante, ocupacion) VALUES
+(5, '1319876541', 'Ruiz Sacan', 'Lilian Rosa', 1 ,'18-03-1987', 2, 'lilianruiz_9@gmail.com', 'Enfermera');
+
 
 INSERT INTO Estudiante (idEstudiante, cedula, apellido_estudiante, nombre_estudiante, fecha_nacimiento, idGenero, edad_estudiante, grupo_sanguineo, idRepresentante, idParentesco) VALUES
-(1, '1318331211', 'Cevallos Gallo', 'Isabella Nicole', '2017-02-10', 1, 3, 'O Positivo', 1, 2),
-(2, '1312456788', 'Alonzo Reyes', 'Tonny Gabriel', '2017-06-10', 2, 3, 'O Positivo', 2, 1),
-(3, '1318365126', 'Gonzalez Ruiz', 'Ana Lorena', '2017-03-30', 1, 3, 'A Positivo', 5, 5),
-(4, '1314567654', 'Valverde Gallo', 'Danna Luisa', '2018-02-10', 1, 3, 'O Positivo', 3, 2),
-(5, '1313567899', 'Suarez Calderon', 'Marcos Julian', '2016-10-16', 2, 4, 'B Positivo', 4, 1);
+(1, '1318331211', 'Cevallos Gallo', 'Isabella Nicole', '10-02-2017', 1, 3, 'O Positivo', 1, 2),
+INSERT INTO Estudiante (idEstudiante, cedula, apellido_estudiante, nombre_estudiante, fecha_nacimiento, idGenero, edad_estudiante, grupo_sanguineo, idRepresentante, idParentesco) VALUES
+(2, '1312456788', 'Alonzo Reyes', 'Tonny Gabriel', '10-06-2017', 2, 3, 'O Positivo', 2, 1),
+INSERT INTO Estudiante (idEstudiante, cedula, apellido_estudiante, nombre_estudiante, fecha_nacimiento, idGenero, edad_estudiante, grupo_sanguineo, idRepresentante, idParentesco) VALUES
+(3, '1318365126', 'Gonzalez Ruiz', 'Ana Lorena', '30-03-2017', 1, 3, 'A Positivo', 5, 5),
+INSERT INTO Estudiante (idEstudiante, cedula, apellido_estudiante, nombre_estudiante, fecha_nacimiento, idGenero, edad_estudiante, grupo_sanguineo, idRepresentante, idParentesco) VALUES
+(4, '1314567654', 'Valverde Gallo', 'Danna Luisa', '10-02-2018', 1, 3, 'O Positivo', 3, 2),
+INSERT INTO Estudiante (idEstudiante, cedula, apellido_estudiante, nombre_estudiante, fecha_nacimiento, idGenero, edad_estudiante, grupo_sanguineo, idRepresentante, idParentesco) VALUES
+(5, '1313567899', 'Suarez Calderon', 'Marcos Julian', '16-10-2016', 2, 4, 'B Positivo', 4, 1)
+
+
 
 INSERT INTO Matricula (idMatricula, idEstudiante, idCurso, fecha) VALUES
-(1, 2, 3, '2020-10-25'),
-(1, 1, 1, '2020-10-25'),
-(1, 4, 3, '2019-12-25'),
-(1, 5, 2, '2019-11-25'),
-(1, 3, 4, '2020-11-25');
+(1, 2, 3, '25-10-2020') 
+INSERT INTO Matricula (idMatricula, idEstudiante, idCurso, fecha) VALUES
+(2, 1, 1, '25-10-2020') 
+INSERT INTO Matricula (idMatricula, idEstudiante, idCurso, fecha) VALUES
+(3, 4, 3, '25-12-2019') 
+INSERT INTO Matricula (idMatricula, idEstudiante, idCurso, fecha) VALUES
+(4, 5, 2, '25-11-2019') 
+INSERT INTO Matricula (idMatricula, idEstudiante, idCurso, fecha) VALUES
+(5, 3, 4, '25-11-2020')
