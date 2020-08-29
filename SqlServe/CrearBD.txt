@@ -1,0 +1,61 @@
+CREATE DATABASE kinder;
+
+CREATE TABLE Genero (
+    idGenero int IDENTITY(1,1) PRIMARY KEY,
+    descripcion varchar(30) NOT NULL
+);
+
+CREATE TABLE EstadoCivil (
+    idEstadoCivil int IDENTITY(1,1) PRIMARY KEY,
+    descripcion varchar(30)
+);
+
+CREATE TABLE Parentesco (
+    idParentesco int IDENTITY(1,1) PRIMARY KEY,
+    descripcion varchar(40) NOT NULL
+);
+
+CREATE TABLE Curso (
+    idCurso int IDENTITY(1,1) PRIMARY KEY,
+    descripcion varchar(50) NOT NULL
+);
+
+
+CREATE TABLE Representante (
+    idRepresentante int IDENTITY(1,1) PRIMARY KEY,
+    cedula varchar(10) NOT NULL,
+    apellido_represetante varchar(45) NOT NULL,
+    nombre_representante varchar(45) NOT NULL,
+    idGenero INT NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    idEstadoCivil INT NOT NULL,
+    email_representante   varchar(45) NOT NULL,
+    ocupacion varchar(50) NOT NULL,
+    CONSTRAINT Genero_Representante_FK FOREIGN KEY (idGenero) REFERENCES Genero (idGenero),
+    CONSTRAINT EstadoCivil_Representante_FK FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil (idEstadoCivil) 
+);
+
+CREATE TABLE Estudiante (
+    idEstudiante int IDENTITY(1,1) PRIMARY KEY,
+    cedula varchar(10) NOT NULL,
+    apellido_estudiante varchar(45) NOT NULL,
+    nombre_estudiante varchar(45) NOT NULL,    
+    fecha_nacimiento DATE NOT NULL,
+    idGenero INT NOT NULL,    
+    edad_estudiante INT NOT NULL,
+    grupo_sanguineo varchar(20) NOT NULL,
+    idRepresentante INT NOT NULL, 
+    idParentesco INT NOT NULL, 
+    CONSTRAINT Genero_Estudiante_FK FOREIGN KEY (idGenero) REFERENCES Genero (idGenero),
+    CONSTRAINT Representante_Estudiante_FK FOREIGN KEY (idRepresentante) REFERENCES Representante (idRepresentante),
+    CONSTRAINT Parentesco_Estudiante_FK FOREIGN KEY (idParentesco) REFERENCES Parentesco (idParentesco)  
+);
+
+CREATE TABLE Matricula(
+    idMatricula int IDENTITY(1,1) PRIMARY KEY,
+    idEstudiante INT NOT NULL, 
+    idCurso INT NOT NULL,
+    fecha DATE NOT NULL, 
+    CONSTRAINT Estudiante_Matricula_FK FOREIGN KEY (idEstudiante) REFERENCES Estudiante (idEstudiante),
+    CONSTRAINT Curso_Matricula_FK FOREIGN KEY (idCurso) REFERENCES Curso (idCurso) 
+);
